@@ -5,8 +5,6 @@ const path = require('path');
 // const queryString = require('querystring');
 
 const homeRoute = (request, response) => {
-  // when files are found - this one is always the index so the content type can be set
-  response.writeHead(200, {"Content-Type":"text/html"});
   // read the file
   fs.readFile(
     // create the path where to look
@@ -16,6 +14,8 @@ const homeRoute = (request, response) => {
         respose.writeHead(500, {"Content-Type":"text/html"});
         response.end(`<h1>Somethisng went wrong on our end!</h1>`);
       } else {
+        // when files are found - this one is always the index so the content type can be set
+        response.writeHead(200, {"Content-Type":"text/html"});
         response.end(file);
       }
     }
@@ -30,24 +30,27 @@ function publicRoute(request, response, url){
     html: "text/html",
     css: "text/css",
     js: "application/javascript"
+    ico: "image/x-icon",
+    jpg: "image/jpg",
+    png: "image/png",
+    json: "application/json"
   };
-
-  // when files come through
-  response.writeHead(200, {"Content-Type" : "text/html" })
 
   fs.readFile(
     path.join(__dirname, '..', 'public', url), (error, file) => {
       if (error) {
-        response.writeHead
+        response.writeHead(500, "Content-Type": "text/html");
+        response.end(`<h1>Oops something went wrong with the server. Try again!</h1>`);
       } else {
+        response.writeHEad(200, `Content-Type: ${extensionType[extension]}`);
         response.end(file);
       }
     }
-  )
+  );
 }
 
 function queryRoute(request, response) {
-
+  
 }
 
 
