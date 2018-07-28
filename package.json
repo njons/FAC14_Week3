@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/njons/FAC14_Week3/issues"
   },
-  "homepage": "https://github.com/njons/FAC14_Week3#readme"
+  "homepage": "https://github.com/njons/FAC14_Week3#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.3",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  }
 }
