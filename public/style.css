@@ -1,5 +1,19 @@
 body {
   background-color: lightgreen;
   color: white;
-  font-size: 89px;
+  font 
+  font-size: 36px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+
+}
+
+form {
+  border: 5px solid black;
+    margin: auto;
 }
