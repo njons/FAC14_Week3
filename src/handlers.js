@@ -39,7 +39,7 @@ const publicRoute = (request, response) => {
   // read the files
   fs.readFile(
     // tell browser trying to reach the server where the files can be found
-    path.join(__dirname, "..", request.url),
+    path.join(__dirname, ".." , request.url),
     (error, file) => {
       if (error) {
         // when no files come through

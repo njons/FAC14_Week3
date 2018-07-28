@@ -4,11 +4,13 @@ const handlers = require('./handlers');
 const routes = (request, response) => {
   const url = request.url;
 
+  const urlFolders = url.split('/');
+
   if (url === "/") {
     handlers.homeRoute(request, response);
-  } else if (url.includes === "public") {
+  } else if (url.includes("public/")) {
     handlers.publicRoute(request, response);
-  } else if (url.includes === "search/"){
+  } else if (url.includes("search/")) {
     handlers.queryRoute(request, response);
   } else {
     response.writeHead(404, {"Content-Type" : "text/html"});
