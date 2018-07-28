@@ -1,5 +1,6 @@
 // link to handler.js
 const handlers = require('./handlers');
+const search = "/search";
 
 const routes = (request, response) => {
   const url = request.url;
@@ -10,7 +11,7 @@ const routes = (request, response) => {
     handlers.homeRoute(request, response);
   } else if (url.includes("public/")) {
     handlers.publicRoute(request, response, url);
-  } else if (url.includes("search/")) {
+  } else if (url.includes(search)) {
     handlers.queryRoute(request, response, url);
   } else {
     response.writeHead(404, {"Content-Type" : "text/html"});
