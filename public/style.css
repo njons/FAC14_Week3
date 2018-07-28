@@ -38,8 +38,13 @@ button {
   margin: 20px 0;
   color: white;
   width: 10vw;
+  transform: scale(2) rotate(-5deg);
+  transition: all 0.5s ease;
 }
 
+button:hover {
+  transform: scale(2.5) rotate(0deg);
+}
 
 label {
   color: transparent;
