@@ -15,9 +15,9 @@
 
 
 const http = require("http");
-const route = require("./route");
+const routes = require("./routes");
 
-const server = http.createServer(route);
+const server = http.createServer(routes);
 const port = process.env.PORT || 3000;
 
 server.listen(port, () => {
