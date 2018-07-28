@@ -11,6 +11,7 @@ const homeRoute = (request, response) => {
     path.join(__dirname, "..", "public", "index.html"),
     (error, file) => {
       if (error) {
+        // when no files come through
         respose.writeHead(500, {"Content-Type":"text/html"});
         response.end(`<h1>Oops something went wrong with the server. Try again!</h1>`);
       } else {
@@ -22,9 +23,9 @@ const homeRoute = (request, response) => {
   );
 }
 
-const publicRoute = (request, response) => {
+const publicRoute = (request, response, url) => {
   //make sure you can handle multiple "Content-Type" for each of the files
-  const extension = request.url.split(".")[1];
+  const extension = url.split(".")[1];
   // write an object to hold all of the different "Content-Type"s in the public folder
   const extensionType = {
     html: "text/html",
@@ -39,7 +40,7 @@ const publicRoute = (request, response) => {
   // read the files
   fs.readFile(
     // tell browser trying to reach the server where the files can be found
-    path.join(__dirname, ".." , request.url),
+    path.join(__dirname, ".." , url),
     (error, file) => {
       if (error) {
         // when no files come through
@@ -54,8 +55,9 @@ const publicRoute = (request, response) => {
   );
 }
 
-function queryRoute(request, response) {
-
+const queryRoute = (request, response, url) => {
+  let urlEnd = url.split('search/')[1];
+  let decodedQuery = decodeURI(urlEnd);
 }
 
 

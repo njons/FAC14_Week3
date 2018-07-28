@@ -9,9 +9,9 @@ const routes = (request, response) => {
   if (url === "/") {
     handlers.homeRoute(request, response);
   } else if (url.includes("public/")) {
-    handlers.publicRoute(request, response);
+    handlers.publicRoute(request, response, url);
   } else if (url.includes("search/")) {
-    handlers.queryRoute(request, response);
+    handlers.queryRoute(request, response, url);
   } else {
     response.writeHead(404, {"Content-Type" : "text/html"});
     response.end(`this is the custom 404, right here <3`)
