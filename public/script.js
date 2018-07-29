@@ -19,7 +19,7 @@ input.addEventListener('keyup', function(event){
     // if there is input, make the request call
     // let pageUrl = window.location.href;
     // console.log('this is the page url', pageUrl);
-    xhrRequest(urlCreator(window.location.href, searchInput), cb)
+    xhrRequest(urlCreator(window.location.href, searchInput), createResultArrayCb)
   }
 })
 
@@ -29,6 +29,12 @@ function urlCreator (url, str){
     var searchUri = encodeURIComponent(str);
     return url + "search/" + searchUri;
 }
+
+function createResultArrayCb(data, filterdArray) {
+  // window.location.href = decodedQuery
+  console.log("create results array got exported!")
+}
+
 
 // the generic xhr request wrapped in a function
 function xhrRequest(url, cb) {

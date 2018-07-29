@@ -56,25 +56,23 @@ const publicRoute = (request, response, url) => {
 }
 
 const queryRoute = (request, response, url) => {
-  console.log(request.url)
+  console.log('this is the url', url)
   // get the end of the URL to findout what the user searched
   let urlEnd = url.split('search/')[1];
   // clean up the search by only allowing upper/lowercase letters, numbers and cutting out spaces at the end
   let sanitsiedUrl = urlEnd.replace(/[^A-Za-z0-9' ]/g, "").trim();
   //  un-URL the URL and turn it into plain language
   let decodedQuery = decodeURI(sanitsiedUrl);
-  console.log(`this is the decoded query`, decodedQuery)
+  // console.log(`this is the decoded query`, decodedQuery)
   // this needs to be used to match in the json database
+
   response.end()
 }
 
 
-const createResultsArrayCb = (data, filterdArray) => {
-  // window.location.href = decodedQuery
-}
 
 
 
 
 // make the handlers functoins accessible to route.js
-module.exports = {homeRoute, publicRoute, queryRoute, createResultsArrayCb}
+module.exports = {homeRoute, publicRoute, queryRoute}
