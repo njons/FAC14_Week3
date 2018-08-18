@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="description" content="The most awesome thing!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/reset.css">
-    <link rel="stylesheet" type="text/css" href="public/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/reset.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
   </head>
 
   <body>
@@ -15,13 +15,14 @@
     </header>-->
 
     <form method="get">
-      <label for="search">Search</label>
-      <input type="text" id="search" placeholder="Search your dreams" autocomplete="off">
-      <button type="submit" id="button" value="Submit">&#x26A1;</button>
+      <label for="search">What do you want?</label>
+      <input type="text" id="search" placeholder="What do you want?" autocomplete="off">
+      <button type="submit" id="submit" value="Submit">search</button>
     </form>
-    <ul id="datalist"></ul>
+
+    <ul id="resultslist"></ul>
   </body>
 
-  <script src="public/script.js"></script>
+  <script src="./js/script.js"></script>
 
 </html>

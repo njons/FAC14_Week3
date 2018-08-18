@@ -1,28 +1,26 @@
 var input = document.getElementById('search');
-var button = document.getElementById('button');
+var button = document.getElementById('submit');
 var datalist = document.getElementById('datalist');
 
 // create an object ready to hold the final filtered object with rearch results
 var globalObj = {};
 
-// send xhr request to the server for each letter typed by the user
-input.addEventListener('keyup', function(event){
-  // get the input from the user
-  var searchInput = input.value;
-  console.log('this is the search input from the user', searchInput)
+var searchTermSanitised
+var giphy_api_key = "7cWhgewjrS2GSML9Sj3iCQZd24zYFLSh";
+var giphy_url = "https://api.giphy.com/v1/gifs/random?tag=" + searchTermSanitised + "&api_key=" + giphy_api_key;
 
-  // make sure there is input from the user
-  if(searchInput) {
-    // if there is input, make the request call
-     let pageUrl = window.location.href;
-    xhrRequest(urlCreator(pageUrl, searchInput), createResultArrayCb)
-  }
+button.addEventListener('submit', function(event) {
+  event.preventDefault();
+  xhrRequest('api.giphy.com/v1/gifs/trending/'
+api_key: string, '')
+
 })
 
 // create a URL based on the input from the user
-function urlCreator (url, str){
+function urlCreator (url, str) {
   // takes url and adds a string value that corresponds to the user search input (str)
   var searchUri = encodeURIComponent(str);
+  console.log('this is the url creaded with the user input:', searchUri)
   return url + "search/" + searchUri;
 }
 
@@ -43,6 +41,7 @@ function xhrRequest(url, cb) {
       console.log('you did not get a status code of 200')
     }
   }
+  // the url is where to send the request, It can be a local file, a thirdparty server or your own server
   xhr.open("GET", url, true);
   xhr.send();
 }
@@ -76,9 +75,3 @@ function xhrRequest(url, cb) {
 //  }
 //  return limitedArray;
 // }
-
-
-
-button.addEventListener('click', function(event){
-  event.preventDefault();
-})
