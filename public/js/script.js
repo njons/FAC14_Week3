@@ -7,7 +7,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var giphy_api_key: "7cWhgewjrS2GSML9Sj3iCQZd24zYFLSh";
+var giphy_api_key = "7cWhgewjrS2GSML9Sj3iCQZd24zYFLSh";
 var giphy_url =
   "https://api.giphy.com/v1/gifs/trending?&api_key=" + giphy_api_key;
 
