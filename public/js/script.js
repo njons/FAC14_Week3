@@ -1,6 +1,5 @@
-var input = document.getElementById("search");
-var button = document.getElementById("submit");
-var datalist = document.getElementById("datalist");
+var submit = document.getElementById("submit");
+var about = document.getElementById("about");
 
 // random number generator
 function getRandomInt(min, max) {
@@ -30,10 +29,9 @@ function xhrRequest(url, cb) {
   xhr.send();
 }
 
-button.addEventListener("click", function(event) {
+submit.addEventListener("click", function(event) {
   event.preventDefault();
-  console.log("you clicked the button");
-  // call the
+  // xhr to the giphy API
   xhrRequest(giphy_url, function(data) {
     var i = getRandomInt(0, 25);
     var results = document.getElementById("results");
@@ -41,4 +39,14 @@ button.addEventListener("click", function(event) {
     img.setAttribute("src", data.data[i].images.downsized_medium.url);
     results.appendChild(img);
   });
+});
+
+about.addEventListener("click", function(event) {
+  event.preventDefault();
+  console.log("you clicked the about button");
+
+  var aboutDiv = document.createElement("div");
+  about.textContent = "just a little xhr";
+  aboutDiv.classList.add("aboutDiv");
+  about.appendChild(aboutDiv);
 });
