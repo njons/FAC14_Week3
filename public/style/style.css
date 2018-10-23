@@ -1,9 +1,8 @@
 body {
-  background-color: lightgrey;
+  background-color: #00bcd4;
   height: 100vh;
   line-height: 1.2;
   padding: 0 20px;
-
   display: flex;
   flex-direction: column;
   transition: all 0.1s ease;
@@ -16,7 +15,7 @@ button,
 .label {
   font-family: "InputMono-bold", monospace;
   font-size: calc(1rem + 4.5vmin);
-  color: lightgrey;
+  color: black;
 }
 
 header {
@@ -38,7 +37,7 @@ h1 {
 
 .label {
   border: none;
-  display; flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
@@ -46,8 +45,8 @@ h1 {
 
 ul {
   display: flex;
-  justify-content:center;
-  overflow:hidden;
+  justify-content: center;
+  overflow: hidden;
   height: 480px;
   background-color: black;
 }
